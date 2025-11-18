@@ -17,36 +17,38 @@ public class Humain {
 	}
 	
 	public int gagnerArgent(int gain) {
-		int nouv_argent = argentPossede + gain;
-		return nouv_argent;
+		return argentPossede + gain;
 	}
 	
 	public int perdreArgent(int perte) {
-		int nouv_argent = argentPossede - perte;
-		return nouv_argent;
+		return argentPossede - perte;
 	}
 	
 	public void direBonjour() {
-		System.out.println(parler() +"Bonjour ! Je m'appelle " + getNom() + " et j'aime boire du " + boissonFavorite + ".");
-		
-	}
+        parler("Bonjour ! Je m'appelle " + getNom() + " et j'aime boire du " + boissonFavorite + ".");
+        
+    }
 	public String parler() {
-		return "(" + getNom() + ") - ";
-	}
+        return "(" + getNom() + ") - ";
+    }
+	
+	public void parler(String texte) {
+        System.out.println(parler() + texte);
+    }
 	
 	public void boire() {
-		System.out.println(parler() +"Mmm, un bon verre de " + boissonFavorite + " ! GLOUPS !");
-	}
+        parler("Mmm, un bon verre de " + boissonFavorite + " ! GLOUPS !");
+    }
 	
 	public void acheter(String bien, int prix) {
-		if (prix <= argentPossede) {
-			System.out.println(parler() + "J'ai " + argentPossede + "sous en poche. Je vais pouvoir m'offrir " + bien + " à " + prix + " sous." );
-			argentPossede = perdreArgent(prix);
-		}
-		else {
-			System.out.println(parler() + "Je n'ai plus que " + argentPossede + " sous en poche. je ne peux même pas m'offrir " + bien + " à " + prix + " sous.");
-		}	
-	}
+        if (prix <= argentPossede) {
+            parler("J'ai " + argentPossede + " sous en poche. Je vais pouvoir m'offrir " + bien + " à " + prix + " sous.");
+            argentPossede = perdreArgent(prix);
+        } else {
+            parler("Je n'ai plus que " + argentPossede + " sous en poche. Je ne peux même pas m'offrir " 
+                   + bien + " à " + prix + " sous.");
+        }
+    }
 	
 	
 	
